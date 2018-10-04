@@ -1,1 +1,19 @@
 <h1>Edit/Update your Tasks</h1>
+
+<%= form_for @task do |f| %>
+  <%= f.label :title, "Enter a Title"  %>
+  <%= f.text_field :title %>
+
+  <%= f.label :details, "Task Details?" %>
+  <%= f.text_field :details %>
+
+  <% unless f.object.new_record? %>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :completed %> Completed
+      </label>
+    </div>
+  <% end %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
